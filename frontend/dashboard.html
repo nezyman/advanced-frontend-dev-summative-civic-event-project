@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · CivicEvents+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="flex min-h-screen flex-col bg-slate-50 text-slate-800" data-guard="auth" data-nav="dashboard" data-side="dashboard">
+  <div id="app-header"></div>
+
+  <main id="main" class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+    <div class="lg:flex lg:gap-8">
+      <aside id="admin-sidebar" class="mb-6 lg:mb-0 lg:w-56 lg:shrink-0"></aside>
+
+      <div class="min-w-0 flex-1">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h1 id="dash-title" class="text-2xl font-bold tracking-tight text-slate-900">Dashboard</h1>
+            <p id="dash-sub" class="mt-1 text-sm text-slate-600"></p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="last-updated" class="text-xs text-slate-500" aria-live="polite"></span>
+            <button id="refresh" type="button" class="btn btn-secondary btn-sm">Refresh</button>
+          </div>
+        </div>
+
+        <div id="stats" class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"></div>
+
+        <div id="admin-charts" class="mt-8 hidden grid gap-6 xl:grid-cols-2">
+          <section class="card p-6" aria-labelledby="h-growth">
+            <h2 id="h-growth" class="text-base font-semibold text-slate-900">New users per month</h2>
+            <p class="mb-4 text-sm text-slate-500">Sign-ups over the last six months.</p>
+            <div id="chart-growth"></div>
+          </section>
+          <section class="card p-6" aria-labelledby="h-users">
+            <h2 id="h-users" class="text-base font-semibold text-slate-900">Users by status</h2>
+            <p class="mb-4 text-sm text-slate-500">Active and disabled accounts.</p>
+            <div id="chart-users"></div>
+          </section>
+          <section class="card p-6" aria-labelledby="h-events">
+            <h2 id="h-events" class="text-base font-semibold text-slate-900">Events by timing</h2>
+            <p class="mb-4 text-sm text-slate-500">Upcoming, in progress and finished events.</p>
+            <div id="chart-events"></div>
+          </section>
+          <section class="card p-6" aria-labelledby="h-content">
+            <h2 id="h-content" class="text-base font-semibold text-slate-900">Content overview</h2>
+            <p class="mb-4 text-sm text-slate-500">Everything published on the platform.</p>
+            <div id="chart-content"></div>
+          </section>
+        </div>
+
+        <section id="user-links" class="mt-8 hidden" aria-labelledby="h-quick">
+          <h2 id="h-quick" class="text-base font-semibold text-slate-900">Jump back in</h2>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <a href="events.html" class="card p-5 transition hover:border-brand-500 hover:shadow-md"><p class="font-semibold text-slate-900">Browse events</p><p class="mt-1 text-sm text-slate-600">Find something happening near you.</p></a>
+            <a href="my-registrations.html" class="card p-5 transition hover:border-brand-500 hover:shadow-md"><p class="font-semibold text-slate-900">My registrations</p><p class="mt-1 text-sm text-slate-600">Events you have signed up for.</p></a>
+            <a href="announcements.html" class="card p-5 transition hover:border-brand-500 hover:shadow-md"><p class="font-semibold text-slate-900">Announcements</p><p class="mt-1 text-sm text-slate-600">Listen to the latest updates.</p></a>
+            <a href="promos.html" class="card p-5 transition hover:border-brand-500 hover:shadow-md"><p class="font-semibold text-slate-900">Promos</p><p class="mt-1 text-sm text-slate-600">Watch community highlights.</p></a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div id="app-footer"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/notify.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+</body>
+</html>

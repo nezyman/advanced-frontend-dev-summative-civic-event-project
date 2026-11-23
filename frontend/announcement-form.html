@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Announcement form · CivicEvents+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="flex min-h-screen flex-col bg-slate-50 text-slate-800" data-guard="admin" data-nav="admin">
+  <div id="app-header"></div>
+
+  <main id="main" class="mx-auto w-full max-w-2xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+    <nav aria-label="Breadcrumb" class="mb-4 text-sm">
+      <a href="announcements.html" class="font-medium text-brand-700 hover:underline">&larr; Back to announcements</a>
+    </nav>
+    <h1 id="form-title" class="text-2xl font-bold tracking-tight text-slate-900">New announcement</h1>
+    <p class="mt-1 text-sm text-slate-600">Fields marked with * are required. Publishing sends a notification to every user.</p>
+
+    <div id="load-state" class="mt-6"></div>
+
+    <form id="announcement-form" class="card mt-6 space-y-6 p-6" novalidate>
+      <div id="form-error" class="hidden rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800" role="alert"></div>
+
+      <div>
+        <label class="label" for="title">Title *</label>
+        <input id="title" name="title" type="text" maxlength="200" class="input" required>
+        <p id="title-error" class="field-error hidden" role="alert"></p>
+      </div>
+
+      <div id="audio-field">
+        <label class="label" for="audio">Audio file *</label>
+        <p id="audio-hint" class="text-xs text-slate-500">MP3, WAV, M4A or OGG, up to 5 MB.</p>
+        <input id="audio" name="audio" type="file" accept=".mp3,.wav,.m4a,.ogg,audio/*" aria-describedby="audio-hint audio-error" class="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:cursor-pointer file:rounded-lg file:border-0 file:bg-brand-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-brand-700 hover:file:bg-brand-100">
+        <p id="audio-error" class="field-error hidden" role="alert"></p>
+        <div id="audio-preview-wrap" class="mt-3 hidden">
+          <p class="text-xs font-medium text-slate-500">Preview</p>
+          <audio id="audio-preview" controls class="mt-1 w-full">Your browser cannot preview this audio.</audio>
+        </div>
+      </div>
+
+      <p id="edit-note" class="hidden rounded-lg bg-slate-100 px-4 py-3 text-sm text-slate-700">The audio file of an existing announcement cannot be replaced. To use different audio, create a new announcement.</p>
+
+      <div class="flex items-center justify-between gap-4 rounded-xl border border-slate-200 p-4">
+        <div>
+          <p class="text-sm font-medium text-slate-900" id="published-label">Published</p>
+          <p class="text-xs text-slate-500" id="published-hint">Published announcements are visible to everyone.</p>
+        </div>
+        <label class="inline-flex items-center">
+          <input id="published" type="checkbox" class="peer sr-only" checked aria-labelledby="published-label" aria-describedby="published-hint">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <div id="progress-wrap" class="hidden" aria-live="polite">
+        <div class="flex justify-between text-xs text-slate-600"><span>Uploading</span><span id="progress-text">0%</span></div>
+        <div class="mt-1 h-2 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-wrap">
+          <div id="progress-bar" class="h-full w-0 rounded-full bg-brand-600 transition-all"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-end gap-3 border-t border-slate-100 pt-6">
+        <a href="announcements.html" class="btn btn-secondary">Cancel</a>
+        <button id="save-btn" type="submit" class="btn btn-primary">Save announcement</button>
+      </div>
+    </form>
+  </main>
+
+  <div id="app-footer"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/notify.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/announcement-form.js"></script>
+</body>
+</html>

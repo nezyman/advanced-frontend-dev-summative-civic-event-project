@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · CivicEvents+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800" data-guard="guest" data-nav="login">
+  <div class="grid min-h-screen lg:grid-cols-2">
+    <section class="hidden flex-col justify-between bg-gradient-to-br from-brand-700 to-brand-900 p-12 text-white lg:flex" aria-hidden="true">
+      <div class="flex items-center gap-2 text-xl font-bold">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/15">C+</span>
+        CivicEvents+
+      </div>
+      <div>
+        <h2 class="max-w-md text-4xl font-bold leading-tight">Your community, one place.</h2>
+        <p class="mt-4 max-w-md text-lg text-brand-100">Discover local events, listen to announcements, watch promos and stay in the loop with real-time notifications.</p>
+      </div>
+      <p class="text-sm text-brand-100">Accessible, responsive and built for everyone.</p>
+    </section>
+
+    <main id="main" class="flex items-center justify-center px-6 py-12">
+      <div class="w-full max-w-md">
+        <div class="mb-8 flex items-center gap-2 font-bold text-brand-700 lg:hidden">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 text-sm text-white">C+</span>
+          CivicEvents+
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight text-slate-900">Welcome back</h1>
+        <p class="mt-2 text-sm text-slate-600">Sign in to see events, announcements and your notifications.</p>
+
+        <form id="login-form" class="mt-8 space-y-5" novalidate>
+          <div id="form-error" class="hidden rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800" role="alert"></div>
+
+          <div>
+            <label class="label" for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" class="input" required>
+            <p id="email-error" class="field-error hidden" role="alert"></p>
+          </div>
+
+          <div>
+            <label class="label" for="password">Password</label>
+            <div class="relative">
+              <input id="password" name="password" type="password" autocomplete="current-password" class="input pr-16" required>
+              <button type="button" data-toggle-password="password" aria-pressed="false" aria-controls="password" class="absolute inset-y-0 right-0 mt-1 rounded-r-lg px-3 text-sm font-medium text-brand-700 hover:underline">Show</button>
+            </div>
+            <p id="password-error" class="field-error hidden" role="alert"></p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <input id="remember" type="checkbox" class="mt-1 h-4 w-4 rounded border-slate-300 text-brand-600">
+            <label for="remember" class="text-sm text-slate-700">
+              Keep me signed in on this device
+              <span class="block text-xs text-slate-500">Saves your session in localStorage so it survives closing the browser. Anyone using this device could access it, so leave this off on shared computers. Otherwise your session is kept in sessionStorage and ends when the tab closes.</span>
+            </label>
+          </div>
+
+          <button id="login-btn" type="submit" class="btn btn-primary w-full py-2.5">Sign in</button>
+        </form>
+
+        <p class="mt-6 text-center text-sm text-slate-600">
+          New to CivicEvents+?
+          <a href="signup.html" class="font-semibold text-brand-700 hover:underline">Create an account</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/notify.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/login.js"></script>
+</body>
+</html>

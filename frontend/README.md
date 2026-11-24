@@ -2,6 +2,10 @@
 
 A multi-page civic events web app built with HTML, Tailwind CSS (CDN) and jQuery only. It talks to the CivicEvents backend (Node/Express + PostgreSQL).
 
+# Demo video
+
+https://youtu.be/pJCOhl7BRKU (also saved in the video-demo folder)
+
 ## Features
 
 - Authentication: signup with live password strength meter, login, remember me, token sent as a Bearer header, automatic sign-out when the token expires or the server answers 401
